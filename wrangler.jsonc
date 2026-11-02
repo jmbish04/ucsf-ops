@@ -204,6 +204,12 @@
   // NOT safety. The repo is still redeployable, and `pnpm run deploy` would bind
   // guardian's database again and run this repo's Drizzle migrations against it.
   //
+  // A database named `ucsf-ops` ALREADY EXISTS on the account: uuid
+  // 0b90293a-a3cb-483f-a9ea-6e90fff3e0c2, num_tables 0, file_size 12,288 bytes,
+  // created 2026-08-22 (D1 API, 2026-11-02). It is empty, so it has never been
+  // migrated. Check whether that is this project's database before creating a
+  // second one.
+  //
   // To set this project up:
   //   npx wrangler d1 create ucsf-ops
   //   # put the returned name and uuid below, then:
